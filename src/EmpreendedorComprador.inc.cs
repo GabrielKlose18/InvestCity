@@ -63,7 +63,7 @@ class EmpreendedorComprador {
   }
   public void listar(){
     BaseSombra db = new BaseSombra();
-    db.listar("./BD/comprador.txt");
+    db.listar("todos","./BD/comprador.txt");
 
   }
 }

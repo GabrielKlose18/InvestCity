@@ -54,26 +54,26 @@ class Empreendedor{
     return preco;
   }
 
-  public Empreendedor (string Cpf, string Name, string Tel, string Serv, string City, double Price){
-    cpf = Cpf;
-    nome = Name;
-    telefone = Tel;
-    tipoServico = Serv;
-    cidade = City;
-    preco = Price;
-  }
+  // public Empreendedor (string Cpf, string Name, string Tel, string Serv, string City, double Price){
+  //   cpf = Cpf;
+  //   nome = Name;
+  //   telefone = Tel;
+  //   tipoServico = Serv;
+  //   cidade = City;
+  //   preco = Price;
+  // }
 
   public void insert(){
     BaseSombra db = new BaseSombra();
 
     string query = $"{this.cpf};{this.nome};{this.telefone};{this.tipoServico};{this.cidade};{this.preco}";
 
-    db.insert("./BD/empreendedor_comprador.txt",query);
+    db.insert("./BD/empreendedor.txt",query);
 
   }
   public void listar(){
     BaseSombra db = new BaseSombra();
-    db.listar("./BD/empreendedor_comprador.txt");
+    db.listar("empreendedor","./BD/empreendedor.txt");
 
   }
 

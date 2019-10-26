@@ -13,7 +13,7 @@ class BaseSombra {
     
   }
 
-  public void listar(string caminho){
+  public void listar(string tp,string caminho){
     //declarando a variavel do tipo StreamWriter 
     StreamReader x;
 
@@ -22,10 +22,28 @@ class BaseSombra {
 
                                   //enquanto nao retornar valor booleano true 
     while (x.EndOfStream != true){//quer dizer que não chegou no fim do  arquivo
-        //le conteúdo da linha
         string linha = x.ReadLine();
+
+        string[] array = linha.Split(";".ToCharArray());
         //escreve na tela o conteúdo da linha
-        Console.WriteLine(linha);
+        if(tp == "empreendedor"){
+          Console.WriteLine($"
+            Cpf: {array[1]} \n
+            Nome: {array[2]} \n
+            Telefone: {array[3]} \n
+            Servico: {array[4]} \n
+            Cidade: {array[5]} \n
+            Preco: {array[6]}
+          ");
+        }else{
+          Console.WriteLine($"
+            Cpf: {array[1]} \n
+            Nome: {array[2]} \n
+            Telefone: {array[3]} \n
+            Cidade: {array[4]} \n
+            Valor investido: {array[5]}
+          ");
+        }
     }
     //após sair do while, é porque leu todo o conteúdo, então
     //temos que fechar o arquivo texto que está aberto

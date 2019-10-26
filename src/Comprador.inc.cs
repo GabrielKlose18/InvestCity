@@ -45,13 +45,13 @@ class Comprador {
     return valorInvestido;
   }
 
-  public Comprador(string c, string n, string t, string ct, double vl){
-    cpf = c;
-    nome = n;
-    telefone = t;
-    cidade = ct;
-    valorInvestido = vl;
-  }
+  // public Comprador(string c, string n, string t, string ct, double vl){
+  //   cpf = c;
+  //   nome = n;
+  //   telefone = t;
+  //   cidade = ct;
+  //   valorInvestido = vl;
+  // }
 
   public void insert(){
     BaseSombra db = new BaseSombra();
@@ -63,7 +63,7 @@ class Comprador {
   }
   public void listar(){
     BaseSombra db = new BaseSombra();
-    db.listar("./BD/comprador.txt");
+    db.listar("comprador","./BD/comprador.txt");
 
   }
 }
