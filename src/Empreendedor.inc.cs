@@ -1,3 +1,7 @@
+using System.IO;
+using System.Text;
+using System;
+
 class Empreendedor{
   private string cpf;
   private string nome;
@@ -54,15 +58,6 @@ class Empreendedor{
     return preco;
   }
 
-  // public Empreendedor (string Cpf, string Name, string Tel, string Serv, string City, double Price){
-  //   cpf = Cpf;
-  //   nome = Name;
-  //   telefone = Tel;
-  //   tipoServico = Serv;
-  //   cidade = City;
-  //   preco = Price;
-  // }
-
   public void insert(){
     BaseSombra db = new BaseSombra();
 
@@ -75,6 +70,27 @@ class Empreendedor{
     BaseSombra db = new BaseSombra();
     db.listar("empreendedor","./BD/empreendedor.txt");
 
+  }
+  
+  public string selecionar(string cpf){
+    //declarando a variavel do tipo StreamWriter 
+    StreamReader x;
+
+    //abrindo um arquivo texto
+    x = File.OpenText("./BD/empreendedor.txt");
+
+    while (x.EndOfStream != true){
+      string linha = x.ReadLine();
+
+      // string[] array = linha.Split(";".ToCharArray());
+      if(linha.Contains(cpf)){
+        x.Close();
+        return linha;
+      }
+    }
+    x.Close();
+    return "false";
+    
   }
 
 }

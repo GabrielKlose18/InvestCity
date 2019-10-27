@@ -1,69 +1,56 @@
+using System.IO;
+using System.Text;
+
 class EmpreendedorComprador {
-  private string cpf;
-  private string nome;
-  private string telefone;
-  private string cidade;
-  private double valorInvestido;
+  private string cpfEmpreendedor;
+  private string cpfComprador;
+  private string servico;
+  private double valor;
 
-  public void setCpf(string Cpf){
-    cpf = Cpf;
+  public void setCpfEmpreendedor(string Cpf){
+    cpfEmpreendedor = Cpf;
   }
 
-  public string getCpf(){
-    return cpf;
+  public string getCpfEmpreendedor(){
+    return cpfEmpreendedor;
   }
 
-  public void setNome(string n){
-    nome = n;
+  public void setCpfComprador(string Cpf){
+    cpfComprador = Cpf;
   }
 
-  public string getNome(){
-    return nome;
+  public string getCpfComprador(){
+    return cpfComprador;
   }
 
-  public void setTelefone(string t){
-    telefone = t;
+  public void setServico(string Servico){
+    servico = Servico;
   }
 
-  public string getTelefone(){
-    return telefone;
+  public string getServico(){
+    return servico;
   }
 
-  public void setCidade(string ct){
-    cidade = ct;
+  public void setValor(double Valor){
+    valor = Valor;
   }
 
-  public string getCidade(){
-    return cidade;
-  }
-
-  public void setValorInvestido(double vl){
-    valorInvestido = vl;
-  }
-
-  public double getValorInvestido(){
-    return valorInvestido;
-  }
-
-  public EmpreendedorComprador(string c, string n, string t, string ct, double vl){
-    cpf = c;
-    nome = n;
-    telefone = t;
-    cidade = ct;
-    valorInvestido = vl;
+  public double getValor(){
+    return valor;
   }
 
   public void insert(){
     BaseSombra db = new BaseSombra();
 
-    string query = $"{this.cpf};{this.nome};{this.telefone};{this.cidade};{this.valorInvestido}";
+    string query = $"{this.cpfEmpreendedor};{this.cpfComprador};{this.servico};{this.valor}";
 
-    db.insert("./BD/comprador.txt",query);
+    db.insert("./BD/empreendedor_comprador.txt",query);
 
   }
-  public void listar(){
+
+  public void listar(string cpf){
     BaseSombra db = new BaseSombra();
-    db.listar("todos","./BD/comprador.txt");
+    db.listar(cpf,"./BD/empreendedor_comprador.txt");
 
   }
 }
