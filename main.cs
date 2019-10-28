@@ -11,7 +11,6 @@ namespace Contratar{
       string opcaoCpf;
       string empreendedorString;
       bool finded = false;
-      string[] nomes = new string[5]; 
       StreamReader Autenticador;
 
       Empreendedor empreendedor = new Empreendedor();
@@ -40,6 +39,7 @@ namespace Contratar{
               if(linha.Contains(opcaoCpf)){
                 finded = true;
                 Console.WriteLine("Usuário encontrado!");
+                
                 Console.WriteLine("Seus Servicos:");
                 empreendedorComprador.listar(opcaoCpf);                
               }
@@ -121,7 +121,7 @@ namespace Contratar{
             Console.WriteLine("Cpf inválido, digite novamente: ");          
             cpf = Console.ReadLine();
           }
-          empreendedor.setCpf(cpf);
+          comprador.setCpf(cpf);
           Console.WriteLine("Telefone para Contato: ");
           comprador.setTelefone(Console.ReadLine());
           Console.WriteLine("Cidade que deseja o serviço: ");
