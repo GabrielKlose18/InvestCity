@@ -4,11 +4,7 @@ using System.Text;
 
 class BaseSombra { 
   public void insert(string caminho, string conteudo){
-    StreamReader x;
-
-    //abrindo um arquivo texto
-    x = File.OpenText(caminho);
-
+    
     var lineCount = (File.ReadAllLines(caminho).Length)+1;
     var text = lineCount.ToString()+";"+conteudo;
     using (StreamWriter sw = File.AppendText(caminho)) {
